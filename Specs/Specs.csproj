@@ -55,9 +55,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="extensions.cs" />
+    <Compile Include="parser\when_parsing_a_valid_exception_log.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="should_extensions.cs" />
     <Compile Include="Spec.cs" />
-    <Compile Include="when_parsing_a_valid_exception_log.cs" />
+    <Compile Include="parser\when_parsing_an_empty_exception_log_file.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

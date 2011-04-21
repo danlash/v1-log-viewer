@@ -2,7 +2,7 @@
 
 namespace VersionOne.LogViewer.Specs
 {
-	public abstract class Spec
+	public abstract class spec
 	{
 		[SetUp]
 		public abstract void context();
