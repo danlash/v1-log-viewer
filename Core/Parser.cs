@@ -37,9 +37,11 @@ namespace VersionOne.LogViewer
 			foreach (Match match in matches)
 			{
 				var virtualDirectory = match.Groups[1].Value;
-				var date = match.Groups[2].Value;
+				var dateString = match.Groups[2].Value;
+				var date = DateTime.MinValue;
+				DateTime.TryParse(dateString, out date);
 
-				var exceptionLog = new ExceptionLog(virtualDirectory);
+				var exceptionLog = new ExceptionLog(virtualDirectory, date);
 				return exceptionLog;
 			}
 

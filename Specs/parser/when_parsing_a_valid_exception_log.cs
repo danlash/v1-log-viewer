@@ -64,5 +64,11 @@ VersionOne.IdeasCommunicationException: Violation'Ideas'Server Error ---> System
 		{
 			_log.VirtualDirectory.should_be("/VersionOne");
 		}
+
+		[Test]
+		public void it_should_extract_the_date()
+		{
+			_log.OccurredAt.should_be(DateTime.Parse("2011-04-13 09:04:07"));
+		}
 	}
 }

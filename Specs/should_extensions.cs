@@ -1,4 +1,5 @@
-﻿using MbUnit.Framework;
+﻿using System;
+using MbUnit.Framework;
 
 namespace VersionOne.LogViewer.Specs
 {
@@ -10,6 +11,11 @@ namespace VersionOne.LogViewer.Specs
 		}
 
 		public static void should_be(this string actual, string expected)
+		{
+			Assert.AreEqual(expected, actual);
+		}
+
+		public static void should_be(this DateTime actual, DateTime expected)
 		{
 			Assert.AreEqual(expected, actual);
 		}
