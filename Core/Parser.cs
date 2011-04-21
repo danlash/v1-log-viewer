@@ -9,22 +9,14 @@ namespace VersionOne.LogViewer
 {
 	public interface IExceptionLogParser
 	{
-		ExceptionLog Parse(Stream log);
+		IEnumerable<ExceptionLog> Parse(Stream log);
 	}
 
 	public class ExceptionLogParser  : IExceptionLogParser
 	{
 		private const string LOG_REGEX = @"==== (/.*?) (.*?) ====(.*?)==== Build: (.*?) ====";
-/*
 
-^==== (\/.*?) (.*?) ====$
-.*
-^==== Build: (.*?) ====$
- 
-*/
-
-
-		public ExceptionLog Parse(Stream logStream)
+		public IEnumerable<ExceptionLog> Parse(Stream logStream)
 		{
 			var reader = new StreamReader(logStream);
 			var log = reader.ReadToEnd();
@@ -33,7 +25,8 @@ namespace VersionOne.LogViewer
 
 			var matches = logRegex.Matches(log);
 
-			
+			var logs = new List<ExceptionLog>();
+
 			foreach (Match match in matches)
 			{
 				var virtualDirectory = match.Groups[1].Value;
@@ -45,10 +38,10 @@ namespace VersionOne.LogViewer
 				var exception = match.Groups[3].Value.Trim();
 
 				var exceptionLog = new ExceptionLog(virtualDirectory, date, version, exception);
-				return exceptionLog;
+				logs.Add(exceptionLog);
 			}
 
-			return null;
+			return logs;
 		}
 	}
 }

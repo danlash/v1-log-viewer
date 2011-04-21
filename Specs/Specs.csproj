@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="extensions.cs" />
     <Compile Include="parser\when_parsing_a_valid_exception_log.cs" />
+    <Compile Include="parser\when_parsing_multiple_logs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="should_extensions.cs" />
     <Compile Include="Spec.cs" />

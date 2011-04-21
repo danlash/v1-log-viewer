@@ -9,6 +9,7 @@ namespace VersionOne.LogViewer.Specs.parser
 	public class when_parsing_a_valid_exception_log : spec
 	{
 		private ExceptionLog _log;
+		private IEnumerable<ExceptionLog> _logs;
 
 		#region LOG TEXT
 		private const string LOG = @"
@@ -99,7 +100,14 @@ VersionOne.IdeasCommunicationException: Violation'Ideas'Server Error ---> System
 		{
 			IExceptionLogParser parser = new ExceptionLogParser();
 
-			_log = parser.Parse(LOG.ToStream());
+			_logs = parser.Parse(LOG.ToStream());
+			_log = _logs.FirstOrDefault();
+		}
+
+		[Test]
+		public void it_should_find_one_log()
+		{
+			_logs.Count().should_be(1);
 		}
 
 		[Test]
