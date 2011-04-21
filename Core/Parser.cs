@@ -14,7 +14,7 @@ namespace VersionOne.LogViewer
 
 	public class ExceptionLogParser  : IExceptionLogParser
 	{
-		private const string LOG_REGEX = @"==== (/.*?) (.*?) ====";//.*^==== Build: (.*?) ====$";
+		private const string LOG_REGEX = @"==== (/.*?) (.*?) ====.*?==== Build: (.*?) ====";
 /*
 
 ^==== (\/.*?) (.*?) ====$
@@ -40,8 +40,10 @@ namespace VersionOne.LogViewer
 				var dateString = match.Groups[2].Value;
 				var date = DateTime.MinValue;
 				DateTime.TryParse(dateString, out date);
+				var versionString = match.Groups[3].Value;
+				var version = new Version(versionString);
 
-				var exceptionLog = new ExceptionLog(virtualDirectory, date);
+				var exceptionLog = new ExceptionLog(virtualDirectory, date, version);
 				return exceptionLog;
 			}
 

@@ -19,5 +19,10 @@ namespace VersionOne.LogViewer.Specs
 		{
 			Assert.AreEqual(expected, actual);
 		}
+
+		public static void should_be(this Version actual, Version expected)
+		{
+			Assert.AreEqual(expected, actual);
+		}
 	}
 }

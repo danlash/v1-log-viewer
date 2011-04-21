@@ -70,5 +70,11 @@ VersionOne.IdeasCommunicationException: Violation'Ideas'Server Error ---> System
 		{
 			_log.OccurredAt.should_be(DateTime.Parse("2011-04-13 09:04:07"));
 		}
+
+		[Test]
+		public void it_should_extract_version()
+		{
+			_log.Version.should_be(new Version("11.0.0.828"));
+		}
 	}
 }
