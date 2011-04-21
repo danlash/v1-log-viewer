@@ -1,3 +1,4 @@
--- VersionOne Log Viewer
+VersionOne Log Viewer
+-----
 
 Windows based viewer for VersionOne logs.
