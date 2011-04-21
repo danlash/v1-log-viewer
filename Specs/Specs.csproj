@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="extensions.cs" />
+    <Compile Include="parser\when_parsing_a_large_log.cs" />
     <Compile Include="parser\when_parsing_a_valid_exception_log.cs" />
     <Compile Include="parser\when_parsing_multiple_logs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -71,6 +72,9 @@
       <Project>{CD57F2EB-26D4-4859-AD35-C68C35DD86B4}</Project>
       <Name>Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="data\large_log.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
